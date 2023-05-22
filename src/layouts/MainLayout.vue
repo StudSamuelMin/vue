@@ -15,7 +15,9 @@
           <q-btn to="/" label="Quasar App" class="text-subtitle1" unelevated></q-btn>
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+
+        <q-btn to="/signin" flat text-color="white" label="회원가입"></q-btn>
+        <!-- <div>Quasar v{{ $q.version }}</div> -->
       </q-toolbar>
     </q-header>
 
