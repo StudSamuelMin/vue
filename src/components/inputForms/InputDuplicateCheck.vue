@@ -3,7 +3,7 @@
     ref="field"
     v-bind="$attrs"
     :model-value="modelValue"
-    @update:model-value="OnInput"
+    @update:model-value="onInput"
     :error="error"
     :error-message="errMsg"
     :no-error-icon="error"

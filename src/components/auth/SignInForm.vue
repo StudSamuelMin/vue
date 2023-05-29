@@ -16,8 +16,9 @@
         label="아이디"
         lazy-rules
         counter
+        :isLoading="isLoading"
         v-model.trim="form.mb_id"
-        :origin="from.mb_id"
+        :origin="form.mb_id"
         :rules="[
           (val) => !!val || '필수 입력입니다.',
           (val) => !!val ? /^[a-zA-Z0-9_]{1,29}$/.test(val) ||
@@ -28,7 +29,7 @@
         :cbCheck="cbCheckId"
       ></InputDuplicateCheck>
 
-      <InputDuplcateCheck
+      <InputDuplicateCheck
         ref="email"
         dense
         rounded
@@ -49,7 +50,7 @@
         <template v-slot:prepend>
           <q-icon name="email"/>
         </template>
-      </InputDuplcateCheck>
+      </InputDuplicateCheck>
 
       <InputPassword
         dense

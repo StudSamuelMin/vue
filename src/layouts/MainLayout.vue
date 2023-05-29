@@ -76,7 +76,15 @@ const linksList = [
     caption: 'practice',
     icon: 'home',
     link: '/addressbook',
-  }
+  },
+
+  {
+    title: 'signin',
+    caption: 'signin',
+    icon: 'home',
+    link: '/signin',
+  },
+
 ]
 
 export default defineComponent({
