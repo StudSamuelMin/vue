@@ -1,17 +1,19 @@
 const config = require('./config')[process.env.NODE_ENV];
 const express = require('express');
 const http = require('http');
+const path = require("path");
+const fs = require("fs");
 
 global.UPLOAD_PATH = path.join("upload/");
 global.MEMBER_PHOTO_PATH = path.join("upload/memberPhoto");
-fstat.mkdirSync(MEMBER_PHOTO_PATH, {recursive : true});
+fs.mkdirSync(MEMBER_PHOTO_PATH, {recursive : true});
 
 const app = express();
 const port = config.PORT;
 
 const cors = require('cors');
 let corsOptions = {
-    origin : '*',
+    origin : 'http://localhost:8181',
     credential : true,
 };
 

@@ -1,5 +1,3 @@
-const moment = require('moment');
-
 const lib = {
     resData : (status, message, resDate, data) => {
         return {status, message, resDate, data}
