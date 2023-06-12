@@ -6,42 +6,42 @@
     :type="type ? 'password' : 'text'"
   >
     <template #prepend>
-      <q-icon name="key"/>
+      <q-icon name="key" />
     </template>
-
     <template #append>
       <q-icon
         :name="type ? 'visibility_off' : 'visibility'"
         class="cursor-pointer"
-        @click="type = !type"/>
+        @click="type = !type"
+      />
     </template>
   </q-input>
 </template>
 
 <script>
-  import { defineComponent } from 'vue';
-  export default defineComponent({
-    name : "inputPassword",
-    emits : ["update:modelValue"],
-    props : {
-      modelValue : String,
-      modelModifiers : {
-        default : () => ({}),
-      },
-    },
+import { defineComponent } from "vue";
 
-    data() {
-      return {
-        type : true,
-      };
+export default defineComponent({
+  name: "inputPassword",
+  emits: ["update:modelValue"],
+  props: {
+    modelValue: String,
+    modelModifiers: {
+      // 수정자 가져옴
+      default: () => ({}),
     },
-
-    methods : {
-      onInput(val) {
-        this.$emit("update:modelValue", val);
-      },
+  },
+  data() {
+    return {
+      type: true,
+    };
+  },
+  methods: {
+    onInput(val) {
+      this.$emit("update:modelValue", val);
     },
-  });
+  },
+});
 </script>
 
 <style></style>
