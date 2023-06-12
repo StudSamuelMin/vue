@@ -1,8 +1,8 @@
 const db = require("../../plugins/mysql");
 const TABLE = require("../../util/TABLE");
 const STATUS = require("../../util/STATUS");
-const {resData, currentTime, isEmpty} = require("../../util/lib");
-const moment = require("moment");
+const {resData, isEmpty} = require("../../util/lib");
+const moment = require("../../util/moment");
 
 const getTotal = async () => {
     try {
@@ -10,7 +10,7 @@ const getTotal = async () => {
         const [[{cnt}]] = await db.execute(query);
         return cnt;
     } catch (e) {
-        return resData(STATUS.E300.result, STATUS.E300.resultDesc, currentTime());
+        return resData(STATUS.E300.result, STATUS.E300.resultDesc, moment().format('LT'));
     }
 };
 
@@ -28,7 +28,7 @@ const getList = async (req) => {
         const [rows] = await db.execute(query);
         return rows;
     } catch (e) {
-        return resData(STATUS.E300.result, STATUS.E300.resultDesc, currentTime());
+        return resData(STATUS.E300.result, STATUS.E300.resultDesc, moment().format('LT'));
     }
 };
 
@@ -46,14 +46,14 @@ const todoController = {
                 {totalCount, list}
             );
         } else {
-            return resData(STATUS.S201.result, STATUS.S201.resultDesc, currentTime());
+            return resData(STATUS.S201.result, STATUS.S201.resultDesc, moment().format('LT'));
         }
     },
 
     create : async (req) => {
         const {title, done} = req.body;
         if (isEmpty(title) || isEmpty(done)) {
-            return resData(STATUS.E100.result, STATUS.E100.resultDesc, currentTime());
+            return resData(STATUS.E100.result, STATUS.E100.resultDesc, moment().format('LT'));
         }
 
         try {
@@ -64,12 +64,12 @@ const todoController = {
                 return resData (
                     STATUS.S200.result,
                     STATUS.S200.resultDesc,
-                    currentTime()
+                    moment().format('LT')
                 );
             }
         } catch (e) {
             console.log(e.message);
-            return resData(STATUS.E300.result, STATUS.E300.resultDesc, currentTime());
+            return resData(STATUS.E300.result, STATUS.E300.resultDesc, moment().format('LT'));
         }
     },
 
@@ -99,3 +99,5 @@ const todoController = {
 }
 
 module.exports = todoController;
+
+
